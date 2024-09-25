@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "web-extension-starter",
+    "version": "0.0.1",
+    "description": "browser extension starter code to help you quickly get up to speed with building your own extension.",
+    "permissions": [
+      "storage",
+      "tabs",
+      "scripting",
+      "declarativeNetRequest"
+    ],
+    "background": {
+      "service_worker": "backgroundScript.js",
+      "type": "module",
+      "scripts": [
+        "backgroundScript.js"
+      ]
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["*.png"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "declarative_net_request" : {
+      "rule_resources" : [{
+        "id": "ruleset",
+        "enabled": true,
+        "path": "rules.json"
+      }]
+    }
+  }

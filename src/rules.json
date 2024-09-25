@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "action": {
+          "type": "modifyHeaders",
+          "requestHeaders": [
+            { "header": "Origin", "operation": "set", "value": "https://duckduckgo.com" }
+          ]
+        },
+        "condition": {
+          "urlFilter": "https://www.google.com/*"
+        }
+    }
+]
