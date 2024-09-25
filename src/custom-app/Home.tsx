@@ -29,11 +29,11 @@ const Body = styled.div`
 const Home = () => {
     return (
         <HomeContainer>
-            <Header />
+            <Header draggable closable title="UI TYPE: CUSTOM APP" />
             <Body>
                 <p>- you can inject a custom app into the page of your choice using content scripts.</p>
                 <br/><br/>
-                <p>- just update the content_scripts url match pattern in manifest.json and you are ready to go.</p>
+                <p>- just update the content_scripts url match pattern in manifest.json and you are ready to build.</p>
             </Body>
         </HomeContainer>
     )

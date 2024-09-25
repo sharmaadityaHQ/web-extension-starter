@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
-import CustomApp from "./pages";
+import CustomApp from "./custom-app";
 import AppIcon from "./assets/app_icon.png";
 import browser from "webextension-polyfill";
 

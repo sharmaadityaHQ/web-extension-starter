@@ -5,7 +5,7 @@ import { Cross, HorizontalDivider } from "./helpers";
 const HeaderContainer = styled.div`
     display: flex;
     flex-direction: column;
-    cursor: move;
+    cursor: ${props => props.draggable ? 'move' : 'auto'};
     flex: 0 0 auto;
 `;
 
@@ -63,28 +63,33 @@ const handleClose = () => {
     cta!.style.visibility = 'visible';
 }
 
-const Header = () => {
+const Header = (props : { title: string, draggable?: boolean, closable?: boolean }) => {
+    const { title, draggable = false, closable = false } = props;
     const header = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (header.current) {
-            header.current.addEventListener('mousedown', handleMouseDown);
-        }
-
-        return () => {
-            header.current?.removeEventListener('mousedown', handleMouseDown);
+        if (draggable) {
+            if (header.current) {
+                header.current.addEventListener('mousedown', handleMouseDown);
+            }
+    
+            return () => {
+                header.current?.removeEventListener('mousedown', handleMouseDown);
+            }
         }
     }, [header.current])
 
     return (
-        <HeaderContainer ref={header}>
+        <HeaderContainer ref={header} draggable={draggable}>
             <HeaderContent>
                 <Heading>
-                    UI TYPE: CUSTOM APP
+                    {title}
                 </Heading>
-                <CrossContainer>
-                    <Cross onClick={handleClose} />
-                </CrossContainer>
+                {closable ? (
+                    <CrossContainer>
+                        <Cross onClick={handleClose} />
+                    </CrossContainer>
+                ) : null}
             </HeaderContent>
             <HorizontalDivider color="#E0E0E0" />
         </HeaderContainer>

@@ -1,12 +1,14 @@
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: {
         backgroundScript: path.join(__dirname, "src/backgroundScript.ts"),
         contentScript: path.join(__dirname, "src/contentScript.tsx"),
-        customApp: path.join(__dirname, "src/pages/index.tsx"),
+        customApp: path.join(__dirname, "src/custom-app/index.tsx"),
+        popup: path.join(__dirname, "src/popup/index.tsx"),
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -33,6 +35,13 @@ module.exports = {
                 'src/manifest.json',
                 'src/rules.json'
             ]
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'views', 'popup.html'),
+            inject: 'body',
+            chunks: ['popup'],
+            hash: true,
+            filename: 'popup.html'
         })
     ],
     resolve: {

@@ -9,6 +9,9 @@
       "scripting",
       "declarativeNetRequest"
     ],
+    "action": {
+      "default_popup": "popup.html"
+    },
     "background": {
       "service_worker": "backgroundScript.js",
       "type": "module",
