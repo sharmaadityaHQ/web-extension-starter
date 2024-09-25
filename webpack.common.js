@@ -9,6 +9,7 @@ module.exports = {
         contentScript: path.join(__dirname, "src/contentScript.tsx"),
         customApp: path.join(__dirname, "src/custom-app/index.tsx"),
         popup: path.join(__dirname, "src/popup/index.tsx"),
+        sidebar: path.join(__dirname, "src/sidebar/index.tsx")
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -42,6 +43,13 @@ module.exports = {
             chunks: ['popup'],
             hash: true,
             filename: 'popup.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'views', 'sidebar.html'),
+            inject: 'body',
+            chunks: ['sidebar'],
+            hash: true,
+            filename: 'sidebar.html'
         })
     ],
     resolve: {

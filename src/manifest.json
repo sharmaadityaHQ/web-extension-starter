@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "description": "browser extension starter code to help you quickly get up to speed with building your own extension.",
     "permissions": [
+      "sidePanel",
       "storage",
       "tabs",
       "scripting",
@@ -11,6 +12,12 @@
     ],
     "action": {
       "default_popup": "popup.html"
+    },
+    "side_panel": {
+      "default_path": "sidebar.html"
+    },
+    "sidebar_action": {
+      "default_panel": "sidebar.html"
     },
     "background": {
       "service_worker": "backgroundScript.js",
