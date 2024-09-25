@@ -9,7 +9,8 @@ module.exports = {
         contentScript: path.join(__dirname, "src/contentScript.tsx"),
         customApp: path.join(__dirname, "src/custom-app/index.tsx"),
         popup: path.join(__dirname, "src/popup/index.tsx"),
-        sidebar: path.join(__dirname, "src/sidebar/index.tsx")
+        sidebar: path.join(__dirname, "src/sidebar/index.tsx"),
+        devtool: path.join(__dirname, "src/devtool/index.tsx")
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -50,6 +51,13 @@ module.exports = {
             chunks: ['sidebar'],
             hash: true,
             filename: 'sidebar.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'views', 'devtool.html'),
+            inject: 'body',
+            chunks: ['devtool'],
+            hash: true,
+            filename: 'devtool.html'
         })
     ],
     resolve: {
