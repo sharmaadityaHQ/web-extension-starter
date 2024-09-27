@@ -18,9 +18,7 @@ react + typescript browser extension starter kit to help you quickly get up to s
 
 ### UI options
 
-refer the video below to explore different UI options available in an extension. you can choose basis your use case.
-
-![Watch the video](./src/assets//browser_extension_demo.mov)
+refer [this video](https://youtu.be/C06jI5P9MVU) to explore different UI options available in an extension. you can choose basis your use case.
 
 ### todo
 
